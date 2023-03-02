@@ -1,20 +1,32 @@
+"use client";
 import { createGlobalStyle } from "styled-components";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const GlobalStyle = createGlobalStyle`
   :root {
   --max-width: 50em;
-  --border-radius: 0.8em;
+  --border-radius: 0.6em;
   --space-small: 0.8em;
   --space-mid: 1.2em;
   --space-large: 2em;
   --space-lg-extra: 7em;
+  --space-btn: 3em;
   --fs-small: clamp(0.8rem, 4vw, 1em);
   --fs-mid: clamp(1em, 4vw, 1.5em);
   --fs-large: clamp(1.5em, 4vw, 2.5rem);
+  --fs-btn: clamp(0.8rem, 4vw, 1rem);
   --gap: 2em;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --clr-primary-blue: 39, 91, 194;
+  --clr-primary-blue--dark: 0, 107, 197;
+  --clr-accent-blue: 168, 196, 248;
+  --clr-primary-gray: 243, 243, 243;
+  --clr-accent-gray: 219, 215, 215;
+  --clr-primary-black: 0, 0, 0;
  }
 
 * {
@@ -26,16 +38,20 @@ const GlobalStyle = createGlobalStyle`
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
   line-height: 1.5;
+  font-family: sans-serif; 
 }
 
 a {
-  color: inherit;
+  color: blue;
   text-decoration: none;
+}
+
+.icon {
+  color: rgba(var(--clr-primary-black), 0.5)
 }
 
 h1,
@@ -150,11 +166,42 @@ h5, {
 	z-index: 20;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.border-all {
+	border: 1px solid var(--bd-color, black);
+}
+
+.border-rounded {
+  border-radius: var(--border-radius);
+}
+
+.line-height-none {
+	line-height: 0;
+}
+
+.bg-primary-blue {
+  background-color: var(--clr-primary-blue);
+}
+
+.bg-accent-blue {
+  background-color: var(--clr-accent-blue);
+}
+
+.bg-primary-blue--dark {
+  background-color: var(--clr-primary-blue--dark);
+}
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
 `;
+
+console.log(inter);
 
 export default GlobalStyle;
