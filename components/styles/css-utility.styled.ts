@@ -1,11 +1,17 @@
 "use client";
 
+import { InputContainerProps } from "@/modules/styled.interface";
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const Container = styled.div`
   width: min(100%, var(--max-width));
   margin: auto;
   padding: var(--space-mid);
+`;
+
+export const DashboardContainer = styled(Container)`
+  width: min(100%, 80em);
 `;
 
 export const FlexContainer = styled.div`
@@ -28,16 +34,89 @@ export const Text = styled.div`
   line-height: 1.5;
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<InputContainerProps>`
   background-color: rgb(var(--clr-accent-gray));
   padding: var(--space-small);
   border-radius: var(--border-radius);
   display: flex;
   align-items: center;
-  transition: all ease 0.5s;
+  border: 1px solid rgb(var(--clr-accent-gray));
+  transition: border-color ease 0.5s;
+  position: relative;
 
-  &:focus-withn {
-    border: 1px solid rgb(var(--clr-primary-blue));
+  .icon {
+    transition: color ease 0.5s;
+  }
+
+  .icon--password .eye--open {
+    transition: all ease 0.5s;
+  }
+
+  .icon--password .eye--closed {
+    display: none;
+    transition: all ease 0.5s;
+  }
+
+  .icon--password.open .eye--closed {
+    display: block;
+  }
+
+  .icon--password.open .eye--open {
+    display: none;
+  }
+
+  .label {
+    position: absolute;
+    left: 0;
+    padding: 2px var(--space-small);
+    transition: all ease 0.5s;
+    border-radius: 0.2em;
+    pointer-events: none;
+
+    ${({ valid }) =>
+      valid === "true" &&
+      css`
+        font-size: 0.8rem;
+        transform: translate(10px, -24px);
+        background-color: rgb(var(--clr-primary-blue));
+        color: white;
+
+        letter-spacing: 2px;
+      `}
+  }
+
+  input {
+    padding: 0.5em;
+    transition: all ease 0.5s;
+  }
+
+  input::placeholder {
+    opacity: 0;
+  }
+
+  &:focus-within {
+    border-color: rgb(var(--clr-primary-blue));
+
+    .icon {
+      color: rgb(var(--clr-primary-blue));
+    }
+
+    ${({ valid }) =>
+      valid !== "true" &&
+      css`
+        input::placeholder {
+          opacity: 1;
+        }
+
+        input + .label {
+          font-size: 0.8rem;
+          transform: translate(10px, -24px);
+          background-color: rgb(var(--clr-primary-blue));
+          color: white;
+
+          letter-spacing: 2px;
+        }
+      `}
   }
 `;
 

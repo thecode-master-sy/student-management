@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
   --clr-primary-gray: 243, 243, 243;
   --clr-accent-gray: 219, 215, 215;
   --clr-primary-black: 0, 0, 0;
+  --clr-primary-error: 255, 2, 2;
  }
 
 * {
@@ -192,6 +193,11 @@ h5, {
 
 .bg-primary-blue--dark {
   background-color: var(--clr-primary-blue--dark);
+}
+
+.error {
+  font-size: 0.9rem;
+  color: rgba(var(--clr-primary-error), 0.8);
 }
 
 
