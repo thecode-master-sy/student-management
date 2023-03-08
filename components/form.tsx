@@ -11,11 +11,12 @@ import {
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import { BiUserCircle } from "react-icons/bi";
-import Link from "next/link";
-import { checkEmpty, login, signup, validate } from "@/utility/utils";
+import { checkEmpty, validate, protect } from "@/utility/utils";
+import { login, signup } from "@/utility/auth";
 import { RevolvingDot } from "react-loader-spinner";
 import { useRouter } from "next/navigation";
 import { setCookie } from "cookies-next";
+import { error } from "console";
 
 export function LoginForm() {
   const router = useRouter();
@@ -59,10 +60,6 @@ export function LoginForm() {
           setError(data.message);
           console.log(data.message);
         } else {
-          setCookie("user", JSON.stringify(data.user), {
-            maxAge: 3600 * 24 * 90,
-            path: "/",
-          });
           router.push("/dashboard");
         }
       }
@@ -149,6 +146,8 @@ export function LoginForm() {
 }
 
 export function SignUpForm() {
+  const router = useRouter();
+
   const [email, setEmail] = useState<string>("");
   const isEmptyEmail = checkEmpty(email);
 
@@ -164,17 +163,20 @@ export function SignUpForm() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isOpenConfirm, setIsOpenConfirm] = useState<boolean>(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     password: "",
+    message: "",
   });
 
   const formData = useMemo(() => {
     return {
-      name: name,
-      email: email,
-      password: password,
+      name: protect(name),
+      email: protect(email),
+      password: protect(password),
     };
   }, [name, password, email]);
 
@@ -194,7 +196,7 @@ export function SignUpForm() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const { name, email, password } = formData;
@@ -254,16 +256,32 @@ export function SignUpForm() {
     }
 
     if (errorsArray.length === 0) {
-      signup();
+      setIsLoading(true);
+      const response = await signup(formData);
+
+      if (response.error) {
+        setIsLoading(false);
+        setErrors((state) => ({ ...state, message: response.message }));
+      } else {
+        setIsLoading(false);
+        router.push("/login");
+      }
     }
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setErrors((state) => ({ ...state, message: "" }));
+    }, 3000);
+  }, [errors.message]);
 
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>
       <Text className="text-center">
         Welcome to Havard, Please Provide a valid Email address and a strong
-        passowrd
+        password
       </Text>
+      <Text className="error mg-top-small text-center">{errors.message}</Text>
 
       <InputContainer
         className="mg-top-mid"
@@ -359,7 +377,23 @@ export function SignUpForm() {
         </span>
       </InputContainer>
       <div>
-        <Button className="mg-top-mid">Sign Up</Button>
+        <Button className="mg-top-mid flex justify-center align-center">
+          {isLoading ? (
+            <RevolvingDot
+              height="100"
+              width="100"
+              radius={10}
+              color="#95BDFF"
+              secondaryColor="#B4E4FF"
+              ariaLabel="revolving-dot-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            "SignUp"
+          )}
+        </Button>
       </div>
     </StyledForm>
   );

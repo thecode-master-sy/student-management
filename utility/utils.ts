@@ -1,6 +1,3 @@
-import { get } from "./send";
-import { LoginData } from "@/modules/utils.interface";
-
 export function checkEmpty(value: string) {
   if (value === "") {
     return false;
@@ -17,17 +14,19 @@ export function validate(value: string, rule: RegExp) {
   return false;
 }
 
-export async function login(e: React.FormEvent, data: LoginData) {
-  e.preventDefault();
-  const { email, password } = data;
+export function protect(string: string) {
+  const specialChars: any = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+    "/": "&#x2F;",
+    "`": "&#x60;",
+    "=": "&#x3D;",
+  };
 
-  const url = `/api/login?email=${email}&password=${password}`;
-
-  const response = await get(url);
-
-  return response;
-}
-
-export async function signup() {
-  console.log("sent");
+  return string.replace(/[&<>"'`=\/]/g, function (char) {
+    return specialChars[char];
+  });
 }
