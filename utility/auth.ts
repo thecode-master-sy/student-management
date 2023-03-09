@@ -1,6 +1,5 @@
 import { get, post } from "@/utility/send";
 import { LoginData, SignUpData } from "@/modules/utils.interface";
-import { NextResponse } from "next/server";
 import { setCookie } from "cookies-next";
 
 export async function getAccessToken(refreshToken: string) {
@@ -43,7 +42,7 @@ export async function login(e: React.FormEvent, data: LoginData) {
       maxAge: 86400,
     });
 
-    setCookie("user", `${JSON.stringify(user)}`, {
+    setCookie("id", `${user.id}`, {
       path: "/",
       maxAge: 86400,
     });

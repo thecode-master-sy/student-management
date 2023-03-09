@@ -1,5 +1,11 @@
-export async function get(url: string) {
-  const response = await fetch(url);
+export async function get(url: string, token: string | undefined) {
+  const response = await fetch(url, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   const responseData = await response.json();
 
