@@ -69,7 +69,7 @@ export function LoginForm() {
   useEffect(() => {
     setTimeout(() => {
       setError("");
-    }, 3000);
+    }, 5000);
   }, [error]);
 
   return (
