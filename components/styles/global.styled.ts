@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 const GlobalStyle = createGlobalStyle`
   :root {
   --max-width: 50em;
+  --break-point: 60em;
   --border-radius: 0.6em;
   --space-small: 0.8em;
   --space-mid: 1.2em;
@@ -68,9 +69,19 @@ h5, {
   padding-bottom: var(--space-small);
 }
 
+.pd-block-mid{
+  padding-top: var(--space-mid);
+  padding-bottom: var(--space-mid);
+}
+
 .pd-inline-small {
   padding-left: var(--space-small);
   padding-right: var(--space-small);
+}
+
+.pd-inline-mid {
+  padding-left: var(--space-mid);
+  padding-right: var(--space-mid);
 }
 
 .pd-left-small {padding-left: var(--space-small)}
@@ -107,6 +118,10 @@ h5, {
 .mg-bottom-mid {margin-bottom: var(--space-mid);}
 .mg-bottom-large {margin-bottom: var(--space-large);}
 
+.mg-auto {
+  margin: auto;
+}
+
 .flex{
 	display: flex;
 	-webkit-gap: var(--gap, 1em);
@@ -120,6 +135,10 @@ h5, {
 
 .align-center {
 	align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
 }
 
 .justify-center {
@@ -136,6 +155,10 @@ h5, {
 
 .flex-direction-column {
 	flex-direction: column;
+}
+
+.gap--small {
+  gap: 0.8em;
 }
 
 .display-inline-block {
@@ -179,6 +202,10 @@ h5, {
   border-radius: var(--border-radius);
 }
 
+.border-circular {
+  border-radius: 50%;
+}
+
 .line-height-none {
 	line-height: 0;
 }
@@ -198,6 +225,17 @@ h5, {
 .error {
   font-size: 0.9rem;
   color: rgba(var(--clr-primary-error), 0.8);
+}
+
+.max-width--80em {
+  max-width: 80em;:w
+
+}
+
+.icon {
+  font-size: 1.2em;
+  color: inherit;
+  cursor: pointer;
 }
 
 

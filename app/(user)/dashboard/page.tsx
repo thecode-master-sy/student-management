@@ -6,6 +6,8 @@ import {
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { get } from "@/utility/send";
+import { deleteCookie, setCookie } from "cookies-next";
+import { getAccessToken } from "@/utility/auth";
 
 export default async function Page() {
   const cookieStore = cookies();
@@ -14,17 +16,21 @@ export default async function Page() {
   if (!id) {
     redirect("/login");
   }
+  const refreshToken = cookieStore.get("refresh_token")?.value;
 
-  const token = cookieStore.get("access_token");
+  const token = cookieStore.get("access_token") ? cookieStore.get("access_token")?.value : await getAccessToken(refreshToken);
 
   const url = `https://pstudent-management-system-api.herokuapp.com/routes/student/get-student?id=${id}`;
-  const user = await get(url, token?.value);
+  const user = await get(url, token);
 
-  const { data } = user;
+  const { data, message, error } = user;
 
-  return (
+  const { name, created_at} = data;
+
+ 
+  return ( 
     <DashboardContainer>
-      <Title>Hello world {data.name}</Title>
+     
     </DashboardContainer>
   );
 }

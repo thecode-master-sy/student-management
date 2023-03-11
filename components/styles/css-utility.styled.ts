@@ -3,6 +3,7 @@
 import { InputContainerProps } from "@/modules/styled.interface";
 import styled from "styled-components";
 import { css } from "styled-components";
+import motion from "framer-motion";
 
 export const Container = styled.div`
   width: min(100%, var(--max-width));
@@ -144,3 +145,85 @@ export const Button = styled.button`
   cursor: pointer;
   width: 100%;
 `;
+
+export const StyledNavBar = styled.nav` 
+  position: relative;
+
+  .underline {
+    border-bottom: 2px solid rgb(var(--clr-primary-blue));
+  }
+
+  a.active {
+    color: rgb(var(--clr-primary-blue));
+    transition: all ease 0.5s;
+  }
+
+  ul {
+    --gap: 2em;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    .cancel {
+      font-size: 2em;
+      margin-left: auto;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .navigation--mobile {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom: 0;
+    background-color: rgb(var(--clr-primary-gray));
+    padding: var(--space-mid);
+    overflow-y: scroll;
+  }
+
+  .navigation--desktop{
+    display: none;
+  }
+
+  .hamburger--container {
+    margin-left: auto;
+  }
+
+  .hamburger {
+    font-size: 1.8em;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 55em) {
+    ul {
+      flex-direction: row;
+      position: relative;
+      
+      .cancel {
+        display: none;
+      }
+
+      .profile {
+        display: none;
+      }
+    }
+
+    .hamburger {
+      display: none;
+    }
+
+    .navigation--desktop{
+      display: flex;
+    }
+
+    .navigation--mobile {
+      display: none;
+    }
+  }
+`

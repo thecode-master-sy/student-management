@@ -2,16 +2,30 @@ import { get, post } from "@/utility/send";
 import { LoginData, SignUpData } from "@/modules/utils.interface";
 import { setCookie } from "cookies-next";
 
-export async function getAccessToken(refreshToken: string) {
-  const response = await fetch("/api/auth/access-token/", {
+export async function getAccessToken(refreshToken: any) {
+  const url = "https://pstudent-management-system-api.herokuapp.com/routes/token/access-token"
+  const response = await fetch(url, {
     method: "GET",
     credentials: "include",
     headers: {
-      "content-type": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${refreshToken}`,
     },
   });
 
-  return await response.json();
+  const data = await response.json();
+
+  //console.log(data);
+
+  if(!data.error) {
+    const { token } = data;
+
+    return token;
+  }else {
+    const {error} = data;
+
+    return error;
+  }
 }
 
 export async function login(e: React.FormEvent, data: LoginData) {
@@ -34,12 +48,12 @@ export async function login(e: React.FormEvent, data: LoginData) {
     const { access_token, user, refresh_token } = responseData.data;
     setCookie("refresh_token", `${refresh_token}`, {
       path: "/",
-      maxAge: 7776000,
+      maxAge: 86400,
     });
 
     setCookie("access_token", `${access_token}`, {
       path: "/",
-      maxAge: 86400,
+      maxAge: 3600,
     });
 
     setCookie("id", `${user.id}`, {
