@@ -13,9 +13,6 @@ export default async function Page() {
   const cookieStore = cookies();
   const id = cookieStore.get("id");
 
-  if (!id) {
-    redirect("/login");
-  }
   const refreshToken = cookieStore.get("refresh_token")?.value;
 
   const token = cookieStore.get("access_token") ? cookieStore.get("access_token")?.value : await getAccessToken(refreshToken);

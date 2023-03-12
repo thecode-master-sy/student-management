@@ -73,3 +73,13 @@ export async function signup(data: SignUpData) {
 
   return response;
 }
+
+// export function isAuthenticated(cookieStore:any){
+//   const id = cookieStore.get("id");
+
+//   if(!id){
+//     return false
+//   }
+
+//   return true;
+// }

@@ -13,10 +13,8 @@ import { MdAlternateEmail } from "react-icons/md";
 import { BiUserCircle } from "react-icons/bi";
 import { checkEmpty, validate, protect } from "@/utility/utils";
 import { login, signup } from "@/utility/auth";
-import { RevolvingDot } from "react-loader-spinner";
-import { useRouter } from "next/navigation";
-import { setCookie } from "cookies-next";
-import { error } from "console";
+import { Oval } from "react-loader-spinner";
+import { redirect, useRouter } from "next/navigation";
 
 export function LoginForm() {
   const router = useRouter();
@@ -60,7 +58,7 @@ export function LoginForm() {
           setError(data.message);
           console.log(data.message);
         } else {
-          router.push("/dashboard");
+          router.push("/dashboard")
         }
       }
     }
@@ -125,17 +123,19 @@ export function LoginForm() {
       <FlexContainer className="justify-center">
         <Button className="mg-top-mid flex justify-center align-center">
           {isLoading ? (
-            <RevolvingDot
-              height="100"
-              width="100"
-              radius={10}
-              color="#95BDFF"
-              secondaryColor="#B4E4FF"
-              ariaLabel="revolving-dot-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
+            <Oval
+            height={25}
+            width={25}
+            color="#d0def7"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel='oval-loading'
+            secondaryColor="#4fa94d"
+            strokeWidth={3}
+            strokeWidthSecondary={3}
+          
+          />
           ) : (
             "Login"
           )}
@@ -146,7 +146,12 @@ export function LoginForm() {
 }
 
 export function SignUpForm() {
-  const router = useRouter();
+
+  const [isRedirect, setRedirect] = useState(false);
+
+  if(isRedirect){
+    redirect("/login")
+  }
 
   const [email, setEmail] = useState<string>("");
   const isEmptyEmail = checkEmpty(email);
@@ -264,7 +269,7 @@ export function SignUpForm() {
         setErrors((state) => ({ ...state, message: response.message }));
       } else {
         setIsLoading(false);
-        router.push("/login");
+        setRedirect(true)
       }
     }
   }
@@ -379,17 +384,19 @@ export function SignUpForm() {
       <div>
         <Button className="mg-top-mid flex justify-center align-center">
           {isLoading ? (
-            <RevolvingDot
-              height="100"
-              width="100"
-              radius={10}
-              color="#95BDFF"
-              secondaryColor="#B4E4FF"
-              ariaLabel="revolving-dot-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
+            <Oval
+            height={25}
+            width={25}
+            color="#d0def7"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel='oval-loading'
+            secondaryColor="#4fa94d"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
+          
+          />
           ) : (
             "SignUp"
           )}
