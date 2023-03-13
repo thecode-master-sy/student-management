@@ -185,6 +185,8 @@ export const StyledNavBar = styled.nav`
     background-color: rgb(var(--clr-primary-gray));
     padding: var(--space-mid);
     overflow-y: scroll;
+    transform: translateX(-100%);
+    opacity:0;
   }
 
   .navigation--desktop{

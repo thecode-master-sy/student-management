@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
     }
 
     //checking protected routes
-    const protectedRoutes = ["/dashboard"]
+    const protectedRoutes = ["/dashboard", "/classes", "/reports", "/tasks"]
 
     const isProtected = protectedRoutes.some((path) => pathname === path);
 

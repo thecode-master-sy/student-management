@@ -58,10 +58,7 @@ export default function NavBar({image_url, name}: { image_url:string; name: stri
                     <h2>Havard</h2>
 
                     <ul className="navigation--desktop">
-                        {/* <li><Link href={"/dashboard"}>DashBoard</Link></li>
-                        <li><Link href={"/classes"}>Classes</Link></li>
-                        <li><Link href={"/tasks"}>Tasks</Link></li>
-                        <li><Link href={"/reports"}>Reports</Link></li> */}
+                       
                         {
                             links.map((link, index) => (
                                 <Link key={index} href={link.path} className={isActiveLink(link.path, pathname) ? "active": "inactive"}>

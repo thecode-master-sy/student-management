@@ -31,6 +31,17 @@ const GlobalStyle = createGlobalStyle`
   --clr-primary-error: 255, 2, 2;
  }
 
+ @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  :root {
+    --clr-primary-gray: 64, 64, 66;
+    --clr-accent-gray: 62, 64, 69;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -225,6 +236,20 @@ h5, {
 .error {
   font-size: 0.9rem;
   color: rgba(var(--clr-primary-error), 0.8);
+}
+
+.alert {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 100px;
+  margin: auto;
+ 
+}
+
+.box-shadow {
+  box-shadow: 0 0 8px 4px rgba(var(--clr-primary-gray));
 }
 
 .max-width--80em {

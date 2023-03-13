@@ -14,7 +14,9 @@ import { BiUserCircle } from "react-icons/bi";
 import { checkEmpty, validate, protect } from "@/utility/utils";
 import { login, signup } from "@/utility/auth";
 import { Oval } from "react-loader-spinner";
-import { redirect, useRouter } from "next/navigation";
+import { redirect, useRouter} from "next/navigation";
+import Alert from "./alert";
+
 
 export function LoginForm() {
   const router = useRouter();
@@ -28,6 +30,8 @@ export function LoginForm() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [pageLoading, setPageLoading] = useState<boolean>(false);
+  const [isSuccessful, setSuccessful] = useState<boolean>(false);
 
   const [error, setError] = useState<string>("");
 
@@ -58,11 +62,15 @@ export function LoginForm() {
           setError(data.message);
           console.log(data.message);
         } else {
+          setSuccessful(true);
+
           router.push("/dashboard")
         }
       }
     }
   }
+
+  
 
   useEffect(() => {
     setTimeout(() => {
@@ -72,6 +80,7 @@ export function LoginForm() {
 
   return (
     <StyledForm onSubmit={(e) => handleLogin(e)}>
+      {isSuccessful && <Alert/> }
       <Text className="text-center">
         welcome back scholar!! input your email and password to continue
       </Text>
