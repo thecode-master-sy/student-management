@@ -82,7 +82,7 @@ export function LoginForm() {
 
   return (
     <StyledForm onSubmit={(e) => handleLogin(e)}>
-      {isSuccessful && <Alert/> }
+      {isSuccessful && <Alert text="Login successFul!"/> }
       <Text className="text-center">
         welcome back scholar!! input your email and password to continue
       </Text>
@@ -180,6 +180,7 @@ export function SignUpForm() {
   const [isOpenConfirm, setIsOpenConfirm] = useState<boolean>(false);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccessful, setSuccessful] = useState<boolean>(false);
 
   const [errors, setErrors] = useState({
     name: "",
@@ -293,6 +294,7 @@ export function SignUpForm() {
 
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>
+      {isSuccessful && <Alert text="Account Created SuccessFully"/>}
       <Text className="text-center">
         Welcome to Havard, Please Provide a valid Email address and a strong
         password

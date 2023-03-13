@@ -46,7 +46,7 @@ const PathVariants = {
 
 
 
-export default function Alert(){
+export default function Alert({text}: {text:string}){
     return(
         <AnimatePresence>
             <motion.div variants={AlertVariants} initial="initial" animate="animate" exit="exit" className="alert box-shadow pd-inline-small pd-block-small flex gap--small align-center border-rounded">
@@ -71,7 +71,7 @@ export default function Alert(){
                     />
                     </g>
                 </motion.svg>
-                <p>login successful!</p>
+                <p>{text}</p>
             </motion.div>
         </AnimatePresence>
     )
