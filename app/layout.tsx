@@ -15,8 +15,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
-          {children}
           <GlobalStyle />
+          {children}
+          
         </StyledComponentsRegistry>
       </body>
     </html>

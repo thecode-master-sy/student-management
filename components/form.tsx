@@ -63,8 +63,10 @@ export function LoginForm() {
           console.log(data.message);
         } else {
           setSuccessful(true);
-
-          router.push("/dashboard")
+          setTimeout(() => {
+            router.push("/dashboard")
+          }), [3000]
+          
         }
       }
     }
