@@ -78,7 +78,7 @@ export default function NavBar({image_url, name}: { image_url:string; name: stri
                         }
                     </ul>
                   
-                    <motion.ul className="navigation--mobile" animate={isNavOpen ? "open": "closed"} variants={moblieNavVariants}>
+                    <motion.ul className="navigation--mobile z-index-mid" animate={isNavOpen ? "open": "closed"} variants={moblieNavVariants}>
                         <span className="cancel"><FaTimes onClick={()=>setNavOpen(!isNavOpen)}/></span>
                         <li><Link href={"/dashboard"}>DashBoard</Link></li>
                         <li><Link href={"/classes"}>Classes</Link></li>

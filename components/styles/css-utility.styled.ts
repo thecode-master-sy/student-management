@@ -31,9 +31,17 @@ export const Title = styled.h1`
   text-transform: capitalize;
 `;
 
+export const SubTitle = styled.h3`
+  text-transform: capitalize;
+`
+
 export const Text = styled.div`
   line-height: 1.5;
 `;
+
+export const SmallText = styled(Text)`
+  font-size: var(--fs-small);
+`
 
 export const InputContainer = styled.div<InputContainerProps>`
   background-color: rgb(var(--clr-accent-gray));
@@ -228,4 +236,8 @@ export const StyledNavBar = styled.nav`
       display: none;
     }
   }
+`
+
+export const Card = styled.div`
+  
 `

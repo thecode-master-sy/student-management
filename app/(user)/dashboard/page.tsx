@@ -1,13 +1,15 @@
 import {
-  Container,
+  Card,
   DashboardContainer,
+  FlexContainer,
+  SmallText,
+  SubTitle,
   Title,
 } from "@/components/styles/css-utility.styled";
-import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { get } from "@/utility/send";
-import { deleteCookie, setCookie } from "cookies-next";
 import { getAccessToken } from "@/utility/auth";
+import {MdKeyboardArrowDown} from "react-icons/md";
 
 export default async function Page() {
   const cookieStore = cookies();
@@ -27,7 +29,30 @@ export default async function Page() {
  
   return ( 
     <DashboardContainer>
-     
+        <section className="mg-top-mid">
+            <h2 className="clr-primary-green">Hello {name}, Welcome Back! 👋</h2>
+            <SmallText>hmm... what do we have here today...</SmallText>
+        </section>
+
+        <section className="mg-top-large">
+          <FlexContainer className="justify-space-between">
+            <SubTitle>Next Classes</SubTitle>
+
+            <span className="flex justify-center align-center">
+              <SmallText className="clr-primary-green">Today</SmallText>
+              <MdKeyboardArrowDown className="icon cursor-pointer"/>
+            </span>
+          </FlexContainer>
+        
+
+          <div className="mg-top-mid">
+              <Card>
+                  <div className="card--top"></div>
+                  <div className="card--body"></div>
+                  <div className="card--bottom"></div>
+              </Card>
+          </div>
+        </section>
     </DashboardContainer>
   );
 }

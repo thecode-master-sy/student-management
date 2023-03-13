@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   --space-large: 2em;
   --space-lg-extra: 7em;
   --space-btn: 3em;
-  --fs-small: clamp(0.8rem, 4vw, 1em);
+  --fs-small: clamp(0.85rem, 2.5vw, 1em);
   --fs-mid: clamp(1em, 4vw, 1.5em);
   --fs-large: clamp(1.5em, 4vw, 2.5rem);
   --fs-btn: clamp(0.8rem, 4vw, 1rem);
@@ -25,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
   --clr-primary-blue: 39, 91, 194;
   --clr-primary-blue--dark: 0, 107, 197;
   --clr-accent-blue: 168, 196, 248;
+  --clr-primary-red: 253, 138, 138;
+  --clr-primary-green: 89, 193, 189;
   --clr-primary-gray: 243, 243, 243;
   --clr-accent-gray: 219, 215, 215;
   --clr-primary-black: 0, 0, 0;
@@ -72,7 +74,7 @@ h2,
 h3, 
 h4,
 h5, {
-	line-height: 1;
+	line-height: 1.5;
 }
 
 .pd-block-small {
@@ -132,6 +134,16 @@ h5, {
 .mg-auto {
   margin: auto;
 }
+
+.clr-primary-blue {color: rgb(var(--clr-primary-blue))}
+.clr-primary-red {color: rgb(var(--clr-primary-red))}
+.clr-primary-gray {color: rgb(var(--clr-primary-gray))}
+.clr-primary-green {color: rgb(var(--clr-primary-green))}
+
+.bg-primary-blue {background: rgb(var(--clr-primary-blue))}
+.bg-primary-red{background: rgb(var(--clr-primary-red))}
+.bg-primary-gray {background: rgb(var(--clr-primary-gray))}
+.bg-primary-green {background: rgb(var(--clr-primary-green))}
 
 .flex{
 	display: flex;
