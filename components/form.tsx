@@ -65,7 +65,7 @@ export function LoginForm() {
           setSuccessful(true);
           setTimeout(() => {
             router.push("/dashboard")
-          }), [3000]
+          }), [5000]
           
         }
       }

@@ -9,7 +9,7 @@ import {RxHamburgerMenu} from "react-icons/rx";
 import {FaTimes} from "react-icons/fa";
 import placeHolderImage from "../public/profile-placeholder.png";
 import {motion} from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { isActiveLink } from "@/utility/utils";
 
@@ -36,6 +36,9 @@ export default function NavBar({image_url, name}: { image_url:string; name: stri
     const pathname = usePathname();
     const [isNavOpen, setNavOpen] = useState(false);
     
+    useEffect(() => {
+        setNavOpen(false);
+    }, [pathname])
 
     const moblieNavVariants = {
         open: {
@@ -74,7 +77,7 @@ export default function NavBar({image_url, name}: { image_url:string; name: stri
                             ))
                         }
                     </ul>
-
+                  
                     <motion.ul className="navigation--mobile" animate={isNavOpen ? "open": "closed"} variants={moblieNavVariants}>
                         <span className="cancel"><FaTimes onClick={()=>setNavOpen(!isNavOpen)}/></span>
                         <li><Link href={"/dashboard"}>DashBoard</Link></li>

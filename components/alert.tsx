@@ -49,7 +49,7 @@ const PathVariants = {
 export default function Alert({text}: {text:string}){
     return(
         <AnimatePresence>
-            <motion.div variants={AlertVariants} initial="initial" animate="animate" exit="exit" className="alert box-shadow pd-inline-small pd-block-small flex gap--small align-center border-rounded">
+            <motion.div variants={AlertVariants} initial="initial" animate="animate" exit="exit" className="alert box-shadow pd-inline-mid pd-block-small flex gap--small align-center border-rounded">
                 <motion.svg viewBox="0 0 53.19 53.19" width={20} height={20}>
                     <g>
                     <motion.circle
