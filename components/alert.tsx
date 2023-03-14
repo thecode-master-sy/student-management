@@ -71,7 +71,7 @@ export default function Alert({text}: {text:string}){
                     />
                     </g>
                 </motion.svg>
-                <p>{text}</p>
+                <p className="fs-small">{text}</p>
             </motion.div>
         </AnimatePresence>
     )

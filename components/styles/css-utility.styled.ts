@@ -3,7 +3,7 @@
 import { InputContainerProps } from "@/modules/styled.interface";
 import styled from "styled-components";
 import { css } from "styled-components";
-import motion from "framer-motion";
+import {motion} from "framer-motion";
 
 export const Container = styled.div`
   width: min(100%, var(--max-width));
@@ -239,5 +239,19 @@ export const StyledNavBar = styled.nav`
 `
 
 export const Card = styled.div`
-  
+  min-width: 20em;
+  background-color: rgba(var(--clr-primary-blue), 0.1);
+  padding: var(--space-mid);
+  border-radius: var(--border-radius);
+`
+
+export const StyledSlider = styled(motion.div)`
+  width: 100%;
+  overflow: hidden;
+  padding: var(--space-small);
+`
+export const InnerSlider = styled(motion.div)`
+  display: flex;
+  gap: var(--gap);
+  min-width: 100%;
 `

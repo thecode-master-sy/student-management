@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
   --clr-primary-gray: 243, 243, 243;
   --clr-accent-gray: 219, 215, 215;
   --clr-primary-black: 0, 0, 0;
+  --clr-primary-white: 255, 255, 255;
   --clr-primary-error: 255, 2, 2;
  }
 
@@ -144,10 +145,17 @@ h5, {
 .bg-primary-red{background: rgb(var(--clr-primary-red))}
 .bg-primary-gray {background: rgb(var(--clr-primary-gray))}
 .bg-primary-green {background: rgb(var(--clr-primary-green))}
+.bg-primary-white{background: rgb(var(--clr-primary-white))}
+
+.fs-small {
+  font-size: var(--fs-small);
+}
+.fs-mid {
+  font-size: var(--fs-mid);
+}
 
 .flex{
 	display: flex;
-	-webkit-gap: var(--gap, 1em);
 	-o-gap: var(--gap, 1em);
 	gap: var(--gap, 1em);
 }
@@ -221,6 +229,11 @@ h5, {
 	border: 1px solid var(--bd-color, black);
 }
 
+.border-blue {
+  --bd-color: rgb(var(--clr-primary-blue));
+  border: 1px solid var(--bd-color, black);
+}
+
 .border-rounded {
   border-radius: var(--border-radius);
 }
@@ -275,14 +288,19 @@ h5, {
   cursor: pointer;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
+
 `;
 
-console.log(inter);
+
 
 export default GlobalStyle;
