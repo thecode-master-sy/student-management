@@ -80,12 +80,12 @@ export default async function Page() {
           <FlexContainer className="justify-space-between">
             <SubTitle>Next Classes</SubTitle>
 
-           <FlexContainer>
-            <Link href={"/classes"} className="clr-primary-green cursor-pointer underline">view all</Link>
-            <span className="flex justify-center align-center">
-              <SmallText className="clr-primary-green">Today</SmallText>
-              <MdKeyboardArrowDown className="icon cursor-pointer"/>
-            </span>
+           <FlexContainer className="align-center">
+              <Link href={"/classes"} className="clr-primary-green cursor-pointer underline">view all</Link>
+              <span className="flex justify-center align-center">
+                <SmallText className="clr-primary-green">Today</SmallText>
+                <MdKeyboardArrowDown className="icon cursor-pointer"/>
+              </span>
             </FlexContainer> 
           </FlexContainer>
         
@@ -93,6 +93,10 @@ export default async function Page() {
           <div className="mg-top-mid">
              <NextClasses classData={classData}/>
           </div>
+        </section>
+
+        <section className="mg-top-large"> 
+
         </section>
     </DashboardContainer>
   );

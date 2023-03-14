@@ -33,6 +33,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.h3`
   text-transform: capitalize;
+  font-size: clamp(1.15rem, 3vw, 1.3rem)
 `
 
 export const Text = styled.div`
@@ -248,7 +249,8 @@ export const Card = styled.div`
 export const StyledSlider = styled(motion.div)`
   width: 100%;
   overflow: hidden;
-  padding: var(--space-small);
+  padding-top: var(--space-small);
+  padding-bottom: var(--space-small);
 `
 export const InnerSlider = styled(motion.div)`
   display: flex;

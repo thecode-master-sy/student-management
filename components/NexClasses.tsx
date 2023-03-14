@@ -28,7 +28,7 @@ export default function NextClasses({classData}: {classData: classDataInterface[
                     </div>
 
                     <div className="card--body mg-top-mid">
-                        <h3>{data.title}</h3>
+                        <h3 className="fs-mid">{data.title}</h3>
 
                         <div className="mg-top-small flex justify-space-between align-center">
                              <span>Duration:</span> 

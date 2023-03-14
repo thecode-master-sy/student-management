@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   --space-lg-extra: 7em;
   --space-btn: 3em;
   --fs-small: clamp(0.85rem, 2.5vw, 1em);
-  --fs-mid: clamp(1em, 4vw, 1.5em);
+  --fs-mid: clamp(1.35em, 3vw, 1.4em);
   --fs-large: clamp(1.5em, 4vw, 2.5rem);
   --fs-btn: clamp(0.8rem, 4vw, 1rem);
   --gap: 2em;
@@ -39,9 +39,17 @@ const GlobalStyle = createGlobalStyle`
     color-scheme: dark;
   }
 
+  @media screen and (min-width: 60em){
+    :root {
+      --gap: 1.5em;
+   
+    }
+  }
+
   :root {
     --clr-primary-gray: 64, 64, 66;
     --clr-accent-gray: 62, 64, 69;
+    --clr-primary-blue: 168, 196, 248;
   }
 }
 
@@ -59,6 +67,7 @@ body {
 body {
   line-height: 1.5;
   font-family: sans-serif; 
+  font-size: var(--fs-small);
 }
 
 a {
