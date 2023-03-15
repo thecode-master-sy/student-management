@@ -42,14 +42,14 @@ export const Title = styled.h1<TitleInterface>`
   font-size: var(--fs-large);
   font-weight: ${({weight}) => weight ? weight : 800};
   text-transform: capitalize;
-  color: ${({color}) => color ? color : "black"};
+  color: ${({color}) => color ? color : "var(--text-color)"};
 `;
 
 export const SubTitle = styled.h3<TitleInterface>`
   text-transform: capitalize;
   font-size: clamp(1.15rem, 3vw, 1.3rem)
   font-weight: ${({weight}) => weight ? weight : 700};
-  color: ${({color}) => color ? color : "black"};
+  color: ${({color}) => color ? color : "var(--text-color)"};
 `
 
 export const Text = styled.div`

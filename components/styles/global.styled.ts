@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
   --clr-primary-black: 0, 0, 0;
   --clr-primary-white: 255, 255, 255;
   --clr-primary-error: 255, 2, 2;
+  --text-color: black;
  }
 
  @media (prefers-color-scheme: dark) {
@@ -52,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --clr-primary-gray: 64, 64, 66;
     --clr-accent-gray: 62, 64, 69;
-    --clr-primary-blue: 168, 196, 248;
+    --text-color: white;
   }
 }
 
@@ -71,6 +72,7 @@ body {
   line-height: 1.5;
   font-family: sans-serif; 
   font-size: var(--fs-small);
+  color: var(--text-color);
 }
 
 a {
