@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
   --clr-primary-black: 0, 0, 0;
   --clr-primary-white: 255, 255, 255;
   --clr-primary-error: 255, 2, 2;
-  --text-color: black;
+  --text-color: 0, 0, 0;
  }
 
  @media (prefers-color-scheme: dark) {
@@ -43,19 +43,21 @@ const GlobalStyle = createGlobalStyle`
     color-scheme: dark;
   }
 
-  @media screen and (min-width: 60em){
-    :root {
-      --gap: 1.5em;
-   
-    }
-  }
-
   :root {
     --clr-primary-gray: 64, 64, 66;
     --clr-accent-gray: 62, 64, 69;
-    --text-color: white;
+    --text-color: 255, 255, 255;
   }
 }
+
+
+@media screen and (min-width: 60em){
+  :root {
+    --gap: 1.5em;
+ 
+  }
+}
+
 
 * {
   box-sizing: border-box;
@@ -72,7 +74,7 @@ body {
   line-height: 1.5;
   font-family: sans-serif; 
   font-size: var(--fs-small);
-  color: var(--text-color);
+  color: rgb(var(--text-color));
 }
 
 a {
@@ -160,6 +162,18 @@ h5, {
 .bg-primary-gray {background: rgb(var(--clr-primary-gray))}
 .bg-primary-green {background: rgb(var(--clr-primary-green))}
 .bg-primary-white{background: rgb(var(--clr-primary-white))}
+
+.bg-accent-blue {
+  background-color: var(--clr-accent-blue);
+}
+
+.bg-primary-blue--dark {
+  background-color: var(--clr-primary-blue--dark);
+}
+
+.bg-primary-blue--light {
+  background-color: rgba(var(--clr-primary-blue), 0.1)
+}
 
 .fs-small {
   font-size: var(--fs-small);
@@ -288,17 +302,6 @@ h5, {
 	line-height: 0;
 }
 
-.bg-primary-blue {
-  background-color: var(--clr-primary-blue);
-}
-
-.bg-accent-blue {
-  background-color: var(--clr-accent-blue);
-}
-
-.bg-primary-blue--dark {
-  background-color: var(--clr-primary-blue--dark);
-}
 
 .error {
   font-size: 0.9rem;
