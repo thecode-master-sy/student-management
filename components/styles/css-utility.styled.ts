@@ -1,6 +1,6 @@
 "use client";
 
-import { InputContainerProps } from "@/modules/styled.interface";
+import { FlexContainerInterface, GridContainerInterface, InputContainerProps, TitleInterface } from "@/modules/styled.interface";
 import styled from "styled-components";
 import { css } from "styled-components";
 import {motion} from "framer-motion";
@@ -15,25 +15,41 @@ export const DashboardContainer = styled(Container)`
   width: min(100%, 80em);
 `;
 
-export const FlexContainer = styled.div`
+export const FlexContainer = styled.div<FlexContainerInterface>`
+  --bd-color: ${({borderColor}) => borderColor ? borderColor : "black"};
   display: flex;
-  gap: var(--gap);
+  gap: ${({gap}) => gap ? gap : "var(--gap)"};
 `;
 
-export const GridContainer = styled.div`
+export const GridContainer = styled.div<GridContainerInterface>`
   display: grid;
   gap: var(--gap);
+
+  ${({columns}) => columns && css`
+    grid-template-columns: ${columns};
+  `}
+
+  @media screen and (min-width: 60em){
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  &.responsive {
+    grid-template-columns: repeat(auto-fit, minmax(${({columnSize}) => columnSize}, 1fr));
+  }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h1<TitleInterface>`
   font-size: var(--fs-large);
-  font-weight: 800;
+  font-weight: ${({weight}) => weight ? weight : 800};
   text-transform: capitalize;
+  color: ${({color}) => color ? color : "black"};
 `;
 
-export const SubTitle = styled.h3`
+export const SubTitle = styled.h3<TitleInterface>`
   text-transform: capitalize;
   font-size: clamp(1.15rem, 3vw, 1.3rem)
+  font-weight: ${({weight}) => weight ? weight : 700};
+  color: ${({color}) => color ? color : "black"};
 `
 
 export const Text = styled.div`
@@ -256,4 +272,20 @@ export const InnerSlider = styled(motion.div)`
   display: flex;
   gap: var(--gap);
   min-width: 100%;
+`
+
+export const CalendarTag = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-60%);
+  background-color: rgb(var(--clr-primary-blue));
+  padding: 0.5em 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.6em;
+  border-radius: 1em;
+  color: white;
+  z-index: 3;
+
 `

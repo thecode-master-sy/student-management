@@ -2,6 +2,7 @@ import {
   Card,
   DashboardContainer,
   FlexContainer,
+  GridContainer,
   SmallText,
   SubTitle,
   Title,
@@ -13,6 +14,7 @@ import {MdKeyboardArrowDown} from "react-icons/md";
 import NextClasses from "@/components/NexClasses";
 import biologyIcon from "../../../public/dna-svgrepo-com.svg"
 import Link from "next/link";
+import TimeTable from "@/components/timetable";
 
 const classData = [
   {
@@ -76,7 +78,7 @@ export default async function Page() {
             <SmallText>hmm... what do we have here today...</SmallText>
         </section>
 
-        <section className="mg-top-large">
+        <section className="mg-top-extra">
           <FlexContainer className="justify-space-between">
             <SubTitle>Next Classes</SubTitle>
 
@@ -95,8 +97,25 @@ export default async function Page() {
           </div>
         </section>
 
-        <section className="mg-top-large"> 
+        <section className="mg-top-extra"> 
+            <GridContainer>
+              <div className="timetable">
+                <SubTitle>TimeTable</SubTitle>
 
+                <div className="mg-top-mid">
+                  <TimeTable/>
+                </div>
+              </div>
+
+              <div className="performance">
+                  <SubTitle>Performance</SubTitle>
+
+                  <div>
+
+                  </div>
+              </div>
+            </GridContainer>
+            
         </section>
     </DashboardContainer>
   );

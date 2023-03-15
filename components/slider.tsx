@@ -8,11 +8,10 @@ export default function Slider({children}: {children:React.ReactNode}){
     const constraintsRef = useRef<any>(null);
 
     useEffect(()=> {
-        console.log(constraintsRef.current.scrollWidth, constraintsRef.current.offsetWidth);
         setWidth(constraintsRef.current.scrollWidth - constraintsRef.current.offsetWidth);
     }, [])
 
-    console.log(width)
+
 
     return(
         <StyledSlider ref={constraintsRef} whileTap={{cursor: "grabbing"}}>

@@ -12,12 +12,15 @@ const GlobalStyle = createGlobalStyle`
   --space-small: 0.8em;
   --space-mid: 1.2em;
   --space-large: 2em;
-  --space-lg-extra: 7em;
+  --space-lg-extra: 6em;
   --space-btn: 3em;
   --fs-small: clamp(0.85rem, 2.5vw, 1em);
   --fs-mid: clamp(1.35em, 3vw, 1.4em);
   --fs-large: clamp(1.5em, 4vw, 2.5rem);
   --fs-btn: clamp(0.8rem, 4vw, 1rem);
+  --fw-semi-bold: 600;
+  --fw-bold: 800;
+  --fw-extra-bold: 900;
   --gap: 2em;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -135,7 +138,7 @@ h5, {
 .mg-top-small {margin-top: var(--space-small);}
 .mg-top-mid {margin-top: var(--space-mid);}
 .mg-top-large {margin-top: var(--space-large);}
-.mg-top-extra {margin-top: var(--space-extra);}
+.mg-top-extra {margin-top: var(--space-lg-extra);}
 
 .mg-bottom-small {margin-bottom: var(--space-small);}
 .mg-bottom-mid {margin-bottom: var(--space-mid);}
@@ -161,6 +164,18 @@ h5, {
 }
 .fs-mid {
   font-size: var(--fs-mid);
+}
+
+.fw-semi-bold {
+  font-size: var(--fw-semi-bold);
+}
+
+.fw-bold {
+  font-size: var(--fw-bold);
+}
+
+.fw-extra-bold {
+  font-size: var(--fw-extra-bold);
 }
 
 .flex{
@@ -232,6 +247,22 @@ h5, {
 
 .text-center {
   text-align: center;
+}
+
+.text-light {
+  color: rgba(0,0,0,0.5);
+}
+
+.text-light-blue {
+  color: rgba(var(--clr-primary-blue), 0.8);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize: {
+  text-transform: capitalize;
 }
 
 .border-all {
