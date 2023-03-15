@@ -102,7 +102,7 @@ export default async function Page() {
               <div className="timetable">
                 <SubTitle>TimeTable</SubTitle>
 
-                <div className="mg-top-mid">
+                <div className="mg-top-large">
                   <TimeTable/>
                 </div>
               </div>

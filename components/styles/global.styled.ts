@@ -266,7 +266,7 @@ h5, {
 }
 
 .text-light {
-  color: rgba(0,0,0,0.5);
+  color: rgba(var(--text-color), 0.5);
 }
 
 .text-light-blue {
