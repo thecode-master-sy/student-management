@@ -262,7 +262,7 @@ export const Card = styled.div`
   border-radius: var(--border-radius);
 
   @media (prefers-color-scheme: dark) {
-    color: white;
+    color: black;
   }
 `
 
