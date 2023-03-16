@@ -172,7 +172,7 @@ h5, {
 }
 
 .bg-primary-blue--light {
-  background-color: rgba(var(--clr-primary-blue), 0.4)
+  background-color: rgb(var(--clr-accent-blue))
 }
 
 .fs-small {
@@ -270,7 +270,7 @@ h5, {
 }
 
 .text-light-blue {
-  color: rgba(var(--clr-primary-blue), 0.8);
+  color: rgb(var(--clr-accent-blue));
 }
 
 .uppercase {

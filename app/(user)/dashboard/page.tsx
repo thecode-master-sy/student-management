@@ -84,9 +84,9 @@ export default async function Page() {
             <SubTitle>Next Classes</SubTitle>
 
            <FlexContainer className="align-center">
-              <Link href={"/classes"} className="clr-primary-green cursor-pointer underline">view all</Link>
-              <span className="flex justify-center align-center">
-                <SmallText className="clr-primary-green">Today</SmallText>
+              <Link href={"/classes"} className="cursor-pointer">view all</Link>
+              <span className="flex justify-center align-center bg-primary-gray border-rounded pd-inline-small pd-block-small cursor-pointer gap--small">
+                <SmallText>Today</SmallText>
                 <MdKeyboardArrowDown className="icon cursor-pointer"/>
               </span>
             </FlexContainer> 
