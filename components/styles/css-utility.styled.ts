@@ -260,6 +260,10 @@ export const Card = styled.div`
   background-color: rgba(var(--clr-accent-blue));
   padding: var(--space-mid);
   border-radius: var(--border-radius);
+
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 `
 
 export const StyledSlider = styled(motion.div)`
