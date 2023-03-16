@@ -15,6 +15,7 @@ import NextClasses from "@/components/NexClasses";
 import biologyIcon from "../../../public/dna-svgrepo-com.svg"
 import Link from "next/link";
 import TimeTable from "@/components/timetable";
+import { CircleChart } from "@/components/performanceChart";
 
 const classData = [
   {
@@ -110,8 +111,8 @@ export default async function Page() {
               <div className="performance">
                   <SubTitle>Performance</SubTitle>
 
-                  <div>
-
+                  <div className="mg-top-mid">
+                    <CircleChart/>
                   </div>
               </div>
             </GridContainer>

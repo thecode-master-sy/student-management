@@ -172,7 +172,7 @@ h5, {
 }
 
 .bg-primary-blue--light {
-  background-color: rgba(var(--clr-primary-blue), 0.1)
+  background-color: rgba(var(--clr-primary-blue), 0.4)
 }
 
 .fs-small {

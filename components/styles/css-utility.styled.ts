@@ -30,7 +30,7 @@ export const GridContainer = styled.div<GridContainerInterface>`
   `}
 
   @media screen and (min-width: 60em){
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
   }
   
   &.responsive {
@@ -257,7 +257,7 @@ export const StyledNavBar = styled.nav`
 
 export const Card = styled.div`
   min-width: 20em;
-  background-color: rgba(var(--clr-primary-blue), 0.1);
+  background-color: rgba(var(--clr-primary-blue), 0.4);
   padding: var(--space-mid);
   border-radius: var(--border-radius);
 `
