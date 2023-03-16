@@ -23,7 +23,7 @@ export const FlexContainer = styled.div<FlexContainerInterface>`
 
 export const GridContainer = styled.div<GridContainerInterface>`
   display: grid;
-  gap: var(--gap);
+  gap: ${({gap}) => gap ? gap : "var(--gap)"};
 
   ${({columns}) => columns && css`
     grid-template-columns: ${columns};
@@ -276,20 +276,4 @@ export const InnerSlider = styled(motion.div)`
   display: flex;
   gap: var(--gap);
   min-width: 100%;
-`
-
-export const CalendarTag = styled.div`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(-60%);
-  background-color: rgb(var(--clr-primary-blue));
-  padding: 0.5em 0.8em;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 0.6em;
-  border-radius: 1em;
-  color: white;
-  z-index: 3;
-
 `

@@ -78,7 +78,7 @@ body {
 }
 
 a {
-  color: blue;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -337,6 +337,23 @@ h5, {
   text-decoration: underline;
 }
 
+// .gap {
+
+// }
+
+.performance{
+  margin-top: var(--space-lg-extra);
+
+  @media screen and (min-width: 50em){
+    margin-left: var(--space-large);
+  }
+}
+
+.selected--date {
+  background-color: rgb(var(--clr-primary-blue));
+  color: white;
+  border-radius: 100%;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

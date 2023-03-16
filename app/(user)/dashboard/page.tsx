@@ -99,7 +99,7 @@ export default async function Page() {
         </section>
 
         <section className="mg-top-extra"> 
-            <GridContainer>
+            <GridContainer gap="0px">
               <div className="timetable">
                 <SubTitle>TimeTable</SubTitle>
 
@@ -111,7 +111,7 @@ export default async function Page() {
               <div className="performance">
                   <SubTitle>Performance</SubTitle>
 
-                  <div className="mg-top-mid">
+                  <div className="mg-top-large">
                     <CircleChart/>
                   </div>
               </div>

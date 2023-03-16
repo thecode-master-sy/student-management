@@ -7,6 +7,7 @@ export interface GridContainerInterface{
   rows?: string;
   columnSize?: string;
   borderColor?: string;
+  gap?: string;
 }
 
 export interface FlexContainerInterface {
