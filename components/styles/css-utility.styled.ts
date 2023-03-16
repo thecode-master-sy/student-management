@@ -257,7 +257,7 @@ export const StyledNavBar = styled.nav`
 
 export const Card = styled.div`
   min-width: 20em;
-  background-color: rgba(var(--clr-accent-blue));
+  background-color: rgba(var(--clr-primary-blue), 0.4);
   padding: var(--space-mid);
   border-radius: var(--border-radius);
 `
