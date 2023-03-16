@@ -54,7 +54,7 @@ export default function NavBar({image_url, name}: { image_url:string; name: stri
 
     return(
         <StyledNavBar>
-            <FlexContainer className="max-width--80em mg-auto pd-inline-mid pd-block-mid justify-space-between">
+            <FlexContainer className="max-width--80em mg-auto pd-inline-mid pd-block-mid justify-space-between" >
                 <FlexContainer className="align-center" style={{
                     width: "100%"
                 }}>

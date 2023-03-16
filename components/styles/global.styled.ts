@@ -27,9 +27,9 @@ const GlobalStyle = createGlobalStyle`
   --background-end-rgb: 255, 255, 255;
   --clr-primary-blue: 39, 91, 194;
   --clr-primary-blue--dark: 0, 107, 197;
-  --clr-accent-blue: 168, 196, 248;
+  --clr-accent-blue: 200, 239, 255;
   --clr-primary-red: 253, 138, 138;
-  --clr-primary-green: 89, 193, 189;
+  --clr-primary-green: 148, 251, 171;
   --clr-primary-gray: 243, 243, 243;
   --clr-accent-gray: 219, 215, 215;
   --clr-primary-black: 0, 0, 0;
