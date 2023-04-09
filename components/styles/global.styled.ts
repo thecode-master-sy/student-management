@@ -377,6 +377,16 @@ h5, {
   border-radius: 100%;
 }
 
+.pd-timetable {
+  padding-top: var(--space-large);
+  padding-bottom: var(--space-large);
+
+  @media screen and (min-width: 29em) {
+    padding-top: var(--space-lg-extra);
+    padding-bottom: var(--space-lg-extra);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

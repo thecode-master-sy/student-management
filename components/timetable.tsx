@@ -17,10 +17,10 @@ export default function TimeTable() {
       <div style={{
         width: "100%"
       }}>
-          <div className="bg-primary-gray pd-inline-mid pd-block-large border-rounded">
+          <div className="bg-primary-gray pd-inline-mid  pd-timetable border-rounded">
               <SubTitle className="text-center">{currentMonth} {currentYear}</SubTitle>
 
-              <GridContainer className="fs-small" columns="repeat(7,1fr)" gap="2em"  style={{
+              <GridContainer className="fs-small responsive" columnSize="25px" gap="2em"  style={{
                 marginTop: "var(--space-btn)",
                 placeContent: "center"
               }}>
