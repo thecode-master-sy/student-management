@@ -144,7 +144,7 @@ export default async function Page() {
 
                     <div className="text-center">
                       <p className="mg-top-small">
-                        <span>You've Got:</span>
+                        <span>You&#39;ve Got&#58; </span>
                         <span className="fw-bold">83.5 points!!</span> 
                       </p>
                       <p className="mg-top-mid clr-primary-green fw-bold">your average score increased by 5.4% 🚀</p>
