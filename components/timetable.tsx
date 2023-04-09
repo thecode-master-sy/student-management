@@ -14,18 +14,20 @@ const currentMonth = getMonth(monthIsoFormat);
 
 export default function TimeTable() {
     return (
-      <div>
-          <div className="bg-primary-gray pd-inline-mid pd-block-mid border-rounded">
+      <div style={{
+        width: "100%"
+      }}>
+          <div className="bg-primary-gray pd-inline-mid pd-block-large border-rounded">
               <SubTitle className="text-center">{currentMonth} {currentYear}</SubTitle>
 
-              <GridContainer className="responsive" columnSize="30px" style={{
-                marginTop: "3em",
+              <GridContainer className="fs-small" columns="repeat(7,1fr)" gap="2em"  style={{
+                marginTop: "var(--space-btn)",
                 placeContent: "center"
               }}>
                 {
                   timeTableArray.map((data:any, index:any) => (
                     <FlexContainer className="flex-direction-column align-center cursor-pointer" key={index}>
-                        <span className="uppercase text-light">{data.weekDay[0] + data.weekDay[1] + data.weekDay[2]}</span>
+                        <span className="uppercase text-light">{data.weekDay[0]}</span>
                         <span className={`pd-inline-small pd-block-small ${data.current ? "selected--date": "not-selected"}`}>{data.date}</span>
                     </FlexContainer>
                   ))

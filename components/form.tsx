@@ -16,6 +16,7 @@ import { login, signup } from "@/utility/auth";
 import { Oval } from "react-loader-spinner";
 import { redirect, useRouter} from "next/navigation";
 import Alert from "./alert";
+import Loader from "./pageLoader";
 
 
 export function LoginForm() {
@@ -82,7 +83,7 @@ export function LoginForm() {
 
   return (
     <StyledForm onSubmit={(e) => handleLogin(e)}>
-      {isSuccessful && <Alert text="Login successFul!"/> }
+      {isSuccessful && <Alert text="logged in sucessfully"/>}
       <Text className="text-center">
         welcome back scholar!! input your email and password to continue
       </Text>

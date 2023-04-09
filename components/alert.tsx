@@ -27,7 +27,7 @@ const svgVariants = {
         rotate: "180",
 
         transition: {
-           delay: "3",
+           delay: "1",
         }
     }
 }

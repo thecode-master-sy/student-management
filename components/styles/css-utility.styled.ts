@@ -30,7 +30,11 @@ export const GridContainer = styled.div<GridContainerInterface>`
   `}
 
   @media screen and (min-width: 60em){
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
+
+    ${({columns}) => columns && css`
+    grid-template-columns: ${columns};
+  `}
   }
   
   &.responsive {
@@ -276,4 +280,16 @@ export const InnerSlider = styled(motion.div)`
   display: flex;
   gap: var(--gap);
   min-width: 100%;
+`
+
+export const CircularProgress = styled.div`
+  .svg {
+    display: block;
+    width:  min(300px, 100%);
+    aspect-ratio: 1/1;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
 `

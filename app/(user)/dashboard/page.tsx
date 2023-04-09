@@ -100,19 +100,55 @@ export default async function Page() {
 
         <section className="mg-top-extra"> 
             <GridContainer gap="0px">
-              <div className="timetable">
+              <div className="timetable border-light pd-inline-mid pd-block-mid border-rounded">
                 <SubTitle>TimeTable</SubTitle>
 
-                <div className="mg-top-large">
+                
+                
+                <FlexContainer className="mg-top-large align-center" gap="0.5em">
+                  <span className="border-rounded bg-primary-blue" style={{
+                    width: "25px",
+                    height: "25px"
+                  }}></span>
+                  <span>current day</span>
+                </FlexContainer>
+
+
+                <div className="mg-top-large" style={{
+                  width: "100%",
+                }}>
                   <TimeTable/>
                 </div>
               </div>
 
-              <div className="performance">
+              <div className="performance border-light pd-inline-mid pd-block-mid border-rounded">
                   <SubTitle>Performance</SubTitle>
 
                   <div className="mg-top-large">
+                    <FlexContainer className="align-center justify-space-between">
+                      <FlexContainer>
+                      <span className="border-rounded bg-primary-blue" style={{
+                        width: "25px",
+                        height: "25px"
+                      }}></span>
+                        <span>Points Progress</span>
+                      </FlexContainer>
+
+                      <span className="flex justify-center align-center bg-primary-gray border-rounded pd-inline-small pd-block-small cursor-pointer gap--small">
+                        <SmallText>Monthly</SmallText>
+                        <MdKeyboardArrowDown className="icon cursor-pointer"/>
+                      </span>
+                    </FlexContainer>
+
                     <CircleChart/>
+
+                    <div className="text-center">
+                      <p className="mg-top-small">
+                        <span>You've Got:</span>
+                        <span className="fw-bold">83.5 points!!</span> 
+                      </p>
+                      <p className="mg-top-mid clr-primary-green fw-bold">your average score increased by 5.4% 🚀</p>
+                    </div>
                   </div>
               </div>
             </GridContainer>
